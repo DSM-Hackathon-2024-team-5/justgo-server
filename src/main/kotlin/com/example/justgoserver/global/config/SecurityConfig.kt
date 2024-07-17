@@ -1,8 +1,11 @@
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
+import org.springframework.security.config.annotation.web.builders.WebSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.web.SecurityFilterChain
+import org.springframework.security.web.firewall.DefaultHttpFirewall
+import org.springframework.security.web.firewall.HttpFirewall
 import org.springframework.web.cors.CorsConfiguration
 import org.springframework.web.cors.CorsConfigurationSource
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource
@@ -36,4 +39,15 @@ class SecurityConfig {
         source.registerCorsConfiguration("/**", configuration)
         return source
     }
+
+    @Bean
+    fun defaultHttpFirewall(): HttpFirewall {
+        return DefaultHttpFirewall()
+    }
+
+    @Throws(Exception::class)
+    fun configure(web: WebSecurity) {
+        web.httpFirewall(defaultHttpFirewall())
+    }
+
 }

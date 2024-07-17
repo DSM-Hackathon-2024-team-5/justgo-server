@@ -15,11 +15,13 @@ class AuthService(
 ){
 
     @Transactional(readOnly = true)
-    fun login(request: LoginRequest) {
-        val user = userRepository.findByEmail(request.email)
+    fun login(request: LoginRequest): UserResponse {
+        val userEntity = userRepository.findByEmail(request.email)
             ?: throw RuntimeException("User not found")
 
-        if(request.password != user.password) throw RuntimeException("Password mismatch exception")
+        if(request.password != userEntity.password) throw RuntimeException("Password mismatch exception")
+
+        return UserResponse(userEntity.id, request.email, userEntity.username, userEntity.exp, userEntity.level)
     }
 
     @Transactional

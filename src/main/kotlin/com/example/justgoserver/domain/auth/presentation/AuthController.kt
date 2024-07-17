@@ -25,7 +25,9 @@ class AuthController(
     fun login(
         @RequestBody @Valid
         request: LoginRequest
-    ) = authService.login(request)
+    ) : UserResponse {
+        return authService.login(request)
+    }
 
     @PostMapping("/signup")
     @ResponseStatus(HttpStatus.CREATED)

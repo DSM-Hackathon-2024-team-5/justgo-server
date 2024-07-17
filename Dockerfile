@@ -1,6 +1,7 @@
-FROM openjdk:17-jdk
+FROM openjdk:17-jdk-slim
 
-ARG JAR_FILE=build/libs/*.jar
+EXPOSE 8080
 
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java", "-Dspring.profiles.active=docker", "-jar", "app.jar"]
+ADD build/libs/justgo-server-0.0.1-SNAPSHOT.jar justgo-server-0.0.1-SNAPSHOT.jar
+
+ENTRYPOINT ["java","-jar","justgo-server-0.0.1-SNAPSHOT.jar"]

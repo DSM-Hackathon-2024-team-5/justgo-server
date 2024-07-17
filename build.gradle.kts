@@ -28,28 +28,38 @@ repositories {
 extra["springCloudVersion"] = "2023.0.3"
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
+
+    //orm
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+
+    //security
     implementation("org.springframework.boot:spring-boot-starter-security")
+
+    //validation
     implementation("org.springframework.boot:spring-boot-starter-validation")
+
+    //web
     implementation("org.springframework.boot:spring-boot-starter-web")
+
+
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
+
+    //kotlin
     compileOnly("org.projectlombok:lombok")
+
+    //db
     runtimeOnly("com.mysql:mysql-connector-j")
+
+    //test
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.springframework.security:spring-security-test")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+
 }
 
-dependencyManagement {
-    imports {
-        mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
-    }
-}
 
 kotlin {
     compilerOptions {

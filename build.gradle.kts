@@ -28,8 +28,6 @@ repositories {
 extra["springCloudVersion"] = "2023.0.3"
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
-
     //orm
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
@@ -56,6 +54,8 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-test")
+
+    //security
     implementation("org.springframework.boot:spring-boot-starter-security")
 
 }

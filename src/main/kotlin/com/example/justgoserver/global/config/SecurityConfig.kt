@@ -4,7 +4,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.web.SecurityFilterChain
 import org.springframework.web.cors.CorsConfiguration
+import org.springframework.web.cors.CorsConfigurationSource
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource
+import java.util.*
 
 @Configuration
 @EnableWebSecurity
@@ -23,14 +25,15 @@ class SecurityConfig {
     }
 
     @Bean
-    fun corsConfigurationSource(): UrlBasedCorsConfigurationSource {
+    fun corsConfigurationSource(): CorsConfigurationSource {
+        val configuration = CorsConfiguration()
+        configuration.allowedOrigins = listOf("*")
+        configuration.allowedMethods = Arrays.asList("OPTIONS", "GET", "POST", "PUT", "PATCH", "DELETE")
+        configuration.allowCredentials = false
+        configuration.addAllowedHeader("*")
+
         val source = UrlBasedCorsConfigurationSource()
-        val config = CorsConfiguration()
-        config.allowCredentials = false
-        config.allowedOrigins = listOf("http://localhost:3000")
-        config.allowedHeaders = listOf("*")
-        config.allowedMethods = listOf("*")
-        source.registerCorsConfiguration("/**", config)
+        source.registerCorsConfiguration("/**", configuration)
         return source
     }
 }

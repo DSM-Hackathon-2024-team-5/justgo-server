@@ -19,7 +19,7 @@ class SecurityConfig {
             .csrf { csrf -> csrf.disable() }
             .authorizeHttpRequests { auth ->
                 auth
-                    .requestMatchers("/**").permitAll()
+                    .antMatchers("/**").permitAll()
                     .anyRequest().permitAll()
             }
         return http.build()

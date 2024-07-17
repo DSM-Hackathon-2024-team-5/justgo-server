@@ -15,7 +15,7 @@ class TravelService(
     fun recommendTravelSpotWithinRadius(latitude: Double, longitude: Double, radiusKm: Double): SpotResponse? {
         val maxDistance = radiusKm / 111.32
         val randomLatitude = latitude + (Math.random() * 2 - 1) * maxDistance / 111.32
-        val randomLongitude = longitude + (Math.random() * 2 - 1) * maxDistance / 111.32
+        val randomLongitude = longitude + (Math.random() * 2 - 1) * maxDistance / (111.32 * Math.cos(Math.toRadians(latitude)))
 
         val randomSpot = travelRepository.findRandomSpotWithinRange(randomLatitude, randomLongitude, maxDistance)
         randomSpot?.let {

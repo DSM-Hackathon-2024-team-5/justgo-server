@@ -1,7 +1,7 @@
 package com.example.justgoserver.domain.review.presentation.dto
 
-import jakarta.validation.constraints.Max
-import jakarta.validation.constraints.Min
+import javax.validation.constraints.Max
+import javax.validation.constraints.Min
 
 data class CreateReviewRequest(
     val content: String?,

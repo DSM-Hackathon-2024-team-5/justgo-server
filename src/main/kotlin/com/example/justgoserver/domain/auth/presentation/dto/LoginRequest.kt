@@ -1,6 +1,6 @@
 package com.example.justgoserver.domain.auth.presentation.dto
 
-import jakarta.validation.constraints.Pattern
+import javax.validation.constraints.Pattern
 
 data class LoginRequest(
 

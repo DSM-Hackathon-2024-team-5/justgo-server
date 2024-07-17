@@ -3,10 +3,10 @@ package com.example.justgoserver.domain.review.presentation
 import com.example.justgoserver.domain.review.domain.ReviewEntity
 import com.example.justgoserver.domain.review.presentation.dto.CreateReviewRequest
 import com.example.justgoserver.domain.review.service.ReviewService
-import jakarta.validation.Valid
 import org.springframework.http.ResponseEntity
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
+import javax.validation.Valid
 
 @RestController
 @RequestMapping("/review")

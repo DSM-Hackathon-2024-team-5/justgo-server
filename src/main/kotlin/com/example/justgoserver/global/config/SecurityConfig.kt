@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.web.SecurityFilterChain
 import org.springframework.security.web.firewall.DefaultHttpFirewall
 import org.springframework.security.web.firewall.HttpFirewall
+import org.springframework.security.web.firewall.StrictHttpFirewall
 import org.springframework.web.cors.CorsConfiguration
 import org.springframework.web.cors.CorsConfigurationSource
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource
@@ -42,7 +43,9 @@ class SecurityConfig {
 
     @Bean
     fun defaultHttpFirewall(): HttpFirewall {
-        return DefaultHttpFirewall()
+        val firewall = StrictHttpFirewall()
+        firewall.setAllowUrlEncodedDoubleSlash(true) // URL 인코딩된 이중 슬래시 허용 설정
+        return firewall
     }
 
     @Throws(Exception::class)

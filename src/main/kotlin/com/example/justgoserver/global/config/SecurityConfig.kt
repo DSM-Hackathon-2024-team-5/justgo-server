@@ -1,5 +1,3 @@
-package com.example.justgoserver.global.config
-
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
@@ -17,10 +15,9 @@ class SecurityConfig {
         http
             .cors { cors -> cors.configurationSource(corsConfigurationSource()) }
             .csrf { csrf -> csrf.disable() }
-            .authorizeHttpRequests { auth ->
+            .authorizeRequests { auth ->
                 auth
                     .antMatchers("/**").permitAll()
-                    .anyRequest().permitAll()
             }
         return http.build()
     }

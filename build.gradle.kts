@@ -58,6 +58,8 @@ dependencies {
     //security
     implementation("org.springframework.boot:spring-boot-starter-security")
 
+    implementation("io.github.kilmajster:ngrok-spring-boot-starter:0.9.2")
+
 }
 
 

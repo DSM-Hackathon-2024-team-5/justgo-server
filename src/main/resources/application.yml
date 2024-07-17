@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://13.124.163.187:3306/justgo
+    url: jdbc:mysql://localhost:3306/justgo
     username: root
     password: audwls
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -10,4 +10,7 @@ spring:
     show-sql: true
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-
+ngrok:
+  auth-token: 2jNrAGukk6Z0znEcZY1hqA9SVeB_FKh8HHH6MAPbu8hRn1um
+  enabled: true
+  command: http --domain=beloved-barely-snapper.ngrok-free.app 8080

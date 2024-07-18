@@ -1,6 +1,5 @@
 package com.example.justgoserver.domain.travel.domain
 
-import com.example.justgoserver.domain.travel.presentation.dto.TravelResponse
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.stereotype.Repository
@@ -14,7 +13,4 @@ interface TravelRepository : JpaRepository<TravelEntity, Long> {
         "sin(radians(latitude)))) <= :radius " +
         "ORDER BY RAND() LIMIT 1", nativeQuery = true)
     fun findRandomSpotWithinRange(latitude: Double, longitude: Double, radius: Double): TravelEntity?
-
-    fun findByIsVisitedTrue(): List<TravelResponse>
-
 }

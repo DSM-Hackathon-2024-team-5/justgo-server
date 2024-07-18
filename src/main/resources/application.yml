@@ -10,7 +10,6 @@ spring:
     show-sql: true
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-ngrok:
-  auth-token: 2jNrAGukk6Z0znEcZY1hqA9SVeB_FKh8HHH6MAPbu8hRn1um
-  enabled: true
-  command: http --domain=beloved-barely-snapper.ngrok-free.app 8080
+logging:
+  level:
+    org.springframework.security: DEBUG

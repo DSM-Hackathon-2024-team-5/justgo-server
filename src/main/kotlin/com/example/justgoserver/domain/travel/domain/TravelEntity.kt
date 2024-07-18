@@ -17,13 +17,13 @@ class TravelEntity(
     latitude: Double,
     longitude: Double,
     description: String,
-    isVisited: Boolean
 ): BaseTimeEntity() {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", columnDefinition = "BIGINT")
     var id: Long = id
         protected set
+
 
     @Column(name = "region_name", columnDefinition = "VARCHAR(40)")
     var regionName: String = regionName
@@ -44,9 +44,4 @@ class TravelEntity(
     @Column(name = "description", columnDefinition = "VARCHAR(255)")
     var description: String = description
         protected set
-
-    @Column(name = "is_visited", columnDefinition = "TINYINT(2)")
-    var isVisited: Boolean = false
-        protected set
-
 }

@@ -31,9 +31,6 @@ dependencies {
     //orm
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
-    //security
-    implementation("org.springframework.boot:spring-boot-starter-security")
-
     //validation
     implementation("org.springframework.boot:spring-boot-starter-validation")
 
@@ -53,12 +50,12 @@ dependencies {
     //test
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.springframework.security:spring-security-test")
+//    testImplementation("org.springframework.security:spring-security-test")
 
     //security
     implementation("org.springframework.boot:spring-boot-starter-security")
 
-    implementation("io.github.kilmajster:ngrok-spring-boot-starter:0.9.2")
+//    implementation("io.github.kilmajster:ngrok-spring-boot-starter:0.9.2")
 
 }
 

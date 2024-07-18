@@ -23,7 +23,7 @@ class TravelController(
         @RequestParam longitude: Double,
         @RequestParam radiusKm: Double
     ): ResponseEntity<SpotResponse?> {
-        val response = travelService.recommendTravelSpotWithinRadius(latitude, longitude, radiusKm)
+        val response = travelService.recommendTravelSpotWithinRadius(latitude, longitude, radiusKm, userId)
         return response?.let { ResponseEntity.ok(it) } ?: ResponseEntity.notFound().build()
     }
 

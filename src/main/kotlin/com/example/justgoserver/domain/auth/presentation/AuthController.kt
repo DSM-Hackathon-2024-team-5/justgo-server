@@ -17,7 +17,6 @@ import javax.validation.Valid
 @RestController
 @RequestMapping("/auth")
 @Validated
-@CrossOrigin
 class AuthController(
     private val authService: AuthService
 ) {
